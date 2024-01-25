@@ -1,6 +1,7 @@
 import { defineProperties } from '@vanilla-extract/sprinkles';
 
 import { colorToken } from '../theme.css';
+import { opacity } from '../token/opacity';
 import { conditions } from './conditions';
 
 export const colorProperties = defineProperties({
@@ -10,5 +11,6 @@ export const colorProperties = defineProperties({
     color: colorToken,
     borderColor: colorToken,
     backgroundColor: colorToken,
+    opacity,
   },
 });

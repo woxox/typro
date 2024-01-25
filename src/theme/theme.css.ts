@@ -5,6 +5,7 @@ import { LIGHT_COLOR_TOKEN } from './theme/light.css';
 import { fontSize } from './token/font-size';
 import { fontWeight } from './token/font-weight';
 import { height } from './token/height';
+import { opacity } from './token/opacity';
 import { radius } from './token/radius';
 import { spacing } from './token/spacing';
 import { transition } from './token/transition';
@@ -18,6 +19,7 @@ export const [baseTokenClass, baseToken] = createTheme({
   spacing,
   radius,
   transition,
+  opacity,
 });
 export const colorToken = createThemeContract(DARK_COLOR_TOKEN);
 

@@ -23,7 +23,7 @@ export const buttonVariants = recipe({
     disabled: {
       false: {},
       true: {
-        opacity: 0.3,
+        opacity: baseToken.opacity.disabled,
         cursor: 'not-allowed',
       },
     },

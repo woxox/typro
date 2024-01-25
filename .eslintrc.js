@@ -5,6 +5,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
+  plugins: ['@stylistic'],
   env: {
     browser: true,
     es2021: true,
@@ -15,10 +16,7 @@ module.exports = {
   },
   ignorePatterns: ['node_modules/', 'dist/', 'withTwin.js'],
   rules: {
-    'import/no-default-export': 'off',
-    'react/function-component-definition': 'off',
-    'react/no-unknown-property': 'off',
     '@typescript-eslint/no-unused-vars': 'warn',
-    '@typescript-eslint/no-var-requires': 'off',
+    '@stylistic/jsx-quotes': ['error', 'prefer-double'],
   },
 };

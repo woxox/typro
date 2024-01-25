@@ -3,6 +3,7 @@
 import clsx from 'clsx';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 import { Box } from '@/components/atom/Box';
 import { Button } from '@/components/atom/Button';
@@ -50,7 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
                   grammer
                 </Text>
               </Box>
-              <Button onClick={toggleDarkMode}>Toggle Theme</Button>
+              <Button onClick={toggleDarkMode}>
+                <Box display="flex">{darkMode ? <HiSun /> : <HiMoon />}</Box>
+              </Button>
             </Box>
           </Box>
 

@@ -6,7 +6,9 @@ export const LIGHT_COLOR_TOKEN: typeof DARK_COLOR_TOKEN = {
   'background.surface': COLOR_PALETTE.white,
   'background.primary': COLOR_PALETTE.zinc600,
   'background.primary.hover': COLOR_PALETTE.zinc700,
-  'background.container': COLOR_PALETTE.gray300,
+
+  // container backgroud
+  'background.container': COLOR_PALETTE.zinc200,
 
   // text
   'text.primary': COLOR_PALETTE.zinc950,

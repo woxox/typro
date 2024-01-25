@@ -1,5 +1,6 @@
 import { defineProperties } from '@vanilla-extract/sprinkles';
 
+import { colorToken } from '../theme.css';
 import { height } from '../token/height';
 import { radius } from '../token/radius';
 import { spacing } from '../token/spacing';
@@ -10,6 +11,7 @@ export const responseProperties = defineProperties({
   conditions,
   defaultCondition: 'all',
   properties: {
+    backgroundColor: colorToken,
     display: ['none', 'flex', 'block', 'inline'],
     flexDirection: ['row', 'column'],
     flex: {
@@ -37,10 +39,10 @@ export const responseProperties = defineProperties({
     marginBottom: spacing,
     marginLeft: spacing,
     marginRight: spacing,
-    width: width,
+    width,
     minWidth: width,
     maxWidth: width,
-    height: height,
+    height,
     minHeight: height,
     maxHeight: height,
     borderRadius: radius,

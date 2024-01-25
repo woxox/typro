@@ -31,6 +31,11 @@ export const responseProperties = defineProperties({
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
     boxSizing: ['border-box', 'content-box'],
     gap: spacing,
+    opacity: {
+      invisible: 0,
+      visible: 1,
+      disabled: 0.3,
+    },
     paddingTop: spacing,
     paddingBottom: spacing,
     paddingLeft: spacing,

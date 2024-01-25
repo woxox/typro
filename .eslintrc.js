@@ -1,5 +1,6 @@
 module.exports = {
   extends: [
+    'standard',
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',

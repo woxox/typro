@@ -10,6 +10,7 @@ const charVars = createThemeContract({
 export const chatVariant = recipe({
   base: {
     position: 'relative',
+    fontFamily: 'monospace',
   },
   variants: {
     past: {

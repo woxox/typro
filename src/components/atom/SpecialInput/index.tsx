@@ -84,20 +84,13 @@ export const SpecialInput: React.FC<SpecialInputProps> = ({
             char={input[idx] ?? char}
             past={idx < input.length}
             wrong={idx < input.length && char !== input[idx]}
-            cursor={focused && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx))}
+            // cursor={focused && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx))}
           >
-            {focused && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx)) && (
+            {true && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx)) && (
               <motion.div
                 className={cursorStyle}
                 layoutId="cursor"
-                // initial={{
-                //   display: 'inline',
-                //   position: 'absolute',
-                //   left: '50%',
-                //   top: '-50%',
-                //   transform: 'translate(-50%, -0%)',
-                // }}
-                transition={{ type: 'spring', stiffness: 1400 }}
+                transition={{ type: 'spring', stiffness: 2000, damping: 140 }}
               />
             )}
           </Char>

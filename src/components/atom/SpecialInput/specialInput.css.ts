@@ -5,6 +5,7 @@ import { baseToken, colorToken } from '@/theme/theme.css';
 
 export const speicalInputStyle = style({
   paddingTop: baseToken.spacing['2'],
+  cursor: 'pointer',
 });
 
 export const textAreaStyle = style({
@@ -34,10 +35,10 @@ export const cursorStyle = style({
   display: 'inline',
   content: '" "',
   borderRadius: baseToken.radius.full,
-  left: '50%',
-  transform: 'translate(-50%, -0%)',
+  left: '25%',
+  // transform: 'translateX(-50%)',
   width: baseToken.width['1'],
   height: baseToken.height['1'],
   backgroundColor: colorToken['text.primary'],
-  //   animation: `${cursorBlankAnimation} 1s infinite ease-in`,
+  // animation: `${cursorBlankAnimation} 1s infinite ease-in`,
 });

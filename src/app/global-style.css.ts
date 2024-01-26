@@ -1,6 +1,15 @@
-import { globalStyle } from '@vanilla-extract/css';
+import { fontFace, globalStyle } from '@vanilla-extract/css';
 
 import { baseToken, colorToken } from '@/theme/theme.css';
+
+// export const notoSans = fontFace([
+//   {
+//     src: 'url("./font/NotoSans.ttf")',
+//   },
+//   {
+//     src: 'url("./font/NotoSansKR.ttf")',
+//   },
+// ]);
 
 globalStyle('html, body', {
   width: '100vw',

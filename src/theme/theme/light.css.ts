@@ -12,6 +12,7 @@ export const LIGHT_COLOR_TOKEN: typeof DARK_COLOR_TOKEN = {
 
   // text
   'text.primary': COLOR_PALETTE.zinc950,
+  'text.primary.wrong': COLOR_PALETTE.red500,
 
   // button text
   'text.button.primary': COLOR_PALETTE.white,

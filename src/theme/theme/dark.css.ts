@@ -9,6 +9,7 @@ export const DARK_COLOR_TOKEN = {
 
   // text
   'text.primary': COLOR_PALETTE.white,
+  'text.primary.wrong': COLOR_PALETTE.red500,
 
   // button text
   'text.button.primary': COLOR_PALETTE.white,

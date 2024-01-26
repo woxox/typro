@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Noto_Sans as NotoSans, Noto_Sans_KR as NotoSansKR } from 'next/font/google';
 import { HiMoon, HiSun } from 'react-icons/hi';
 
 import { Box } from '@/components/atom/Box';
@@ -14,7 +14,8 @@ import { baseTokenClass, darkThemeClass, lightThemeClass } from '@/theme/theme.c
 import './global-style.css';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const notoSans = NotoSans({ subsets: ['latin'] });
+const notoSansKR = NotoSansKR({ subsets: ['latin'] });
 
 // export const metadata: Metadata = {
 //   title: "Create Turborepo",
@@ -25,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   const { darkMode, toggleDarkMode } = useThemeStore();
 
   return (
-    <html lang="en" className={clsx(inter.className)}>
+    <html lang="en" className={clsx(notoSans.className, notoSansKR.className)}>
       <body className={clsx(baseTokenClass, darkMode ? darkThemeClass : lightThemeClass)}>
         <Box
           display={'flex'}

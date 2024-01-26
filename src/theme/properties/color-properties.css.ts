@@ -10,6 +10,10 @@ export const colorProperties = defineProperties({
   properties: {
     color: colorToken,
     borderColor: colorToken,
+    borderLeftColor: colorToken,
+    borderRightColor: colorToken,
+    borderTopColor: colorToken,
+    borderBottomColor: colorToken,
     backgroundColor: colorToken,
     opacity,
   },

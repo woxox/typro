@@ -10,12 +10,18 @@ import { cursorStyle, speicalInputStyle, textAreaStyle } from './specialInput.cs
 interface SpecialInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSubmit'> {
   placeholder: string;
   value?: string;
+  focusable?: boolean;
+  stiffness?: number;
+  damping?: number;
   onSubmit?: (data: string) => void;
 }
 
 export const SpecialInput: React.FC<SpecialInputProps> = ({
   placeholder,
   value,
+  focusable = true,
+  stiffness = 2000,
+  damping = 75,
   className,
   onSubmit,
   ...rest
@@ -76,6 +82,7 @@ export const SpecialInput: React.FC<SpecialInputProps> = ({
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onBeforeInput={handleBeforeInput}
+        disabled={!focusable}
       />
       <AnimatePresence>
         {placeholder.split('').map((char, idx, arr) => (
@@ -86,11 +93,11 @@ export const SpecialInput: React.FC<SpecialInputProps> = ({
             wrong={idx < input.length && char !== input[idx]}
             // cursor={focused && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx))}
           >
-            {true && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx)) && (
+            {focused && (cursor === idx || (arr.length <= idx + 1 && cursor >= idx)) && (
               <motion.div
                 className={cursorStyle}
                 layoutId="cursor"
-                transition={{ type: 'spring', stiffness: 2000, damping: 140 }}
+                transition={{ type: 'spring', stiffness, damping }}
               />
             )}
           </Char>

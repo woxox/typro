@@ -1,9 +1,11 @@
 import clsx from 'clsx';
 import { useMemo } from 'react';
 
-import { chatVariant } from './chat.css';
+import { Box } from '../../Box';
+import { Text, TextProps } from '../../Text';
+import { charInnerVariant, charOuterStyle } from '../specialInput.css';
 
-interface CharProps extends React.HTMLAttributes<HTMLDivElement> {
+interface CharProps extends TextProps {
   char: string;
   past?: boolean;
   wrong?: boolean;
@@ -28,19 +30,21 @@ export const Char: React.FC<CharProps> = ({
   }, [char, wrong]);
 
   return (
-    <span
-      className={clsx(
-        chatVariant({
-          past,
-          wrong,
-          cursor,
-        }),
-        className,
-      )}
-      {...props}
-    >
-      {character}
+    <Box className={charOuterStyle}>
+      <Text
+        className={clsx(
+          charInnerVariant({
+            past,
+            wrong,
+            cursor,
+          }),
+          className,
+        )}
+        {...props}
+      >
+        {character}
+      </Text>
       {children}
-    </span>
+    </Box>
   );
 };

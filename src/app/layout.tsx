@@ -39,16 +39,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
           <Box
             backgroundColor={'background.container'}
             borderRadius={'sm'}
-            minWidth={'180'}
+            minWidth={'280'}
             padding={'4'}
             borderBottomLeftRadius="0"
             borderBottomRightRadius="0"
           >
             <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'}>
               <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
-                <Text fontSize={'18'}>Typro</Text>
+                <Text fontSize={'30'}>Typro</Text>
                 <Box display={'flex'} height={'5'} width={'0.5'} backgroundColor={'text.primary'} />
-                <Text fontSize={'18'} opacity={'disabled'}>
+                <Text fontSize={'30'} opacity={'disabled'}>
                   grammer
                 </Text>
               </Box>
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             backgroundColor={'background.container'}
             borderRadius={'sm'}
             padding={'4'}
-            minWidth={'180'}
+            minWidth={'280'}
             borderTopLeftRadius="0"
             borderTopRightRadius="0"
           >

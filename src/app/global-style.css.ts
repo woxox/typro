@@ -19,6 +19,6 @@ globalStyle('html, body', {
 globalStyle('body', {
   color: colorToken['text.primary'],
   backgroundColor: colorToken['background.surface'],
-  ...baseToken.fontSize[14],
+  ...baseToken.fontSize['18'],
   ...baseToken.transition.colors,
 });

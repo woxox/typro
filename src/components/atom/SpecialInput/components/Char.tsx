@@ -1,3 +1,4 @@
+import { RecipeVariants } from '@vanilla-extract/recipes';
 import clsx from 'clsx';
 import { useMemo } from 'react';
 
@@ -5,18 +6,16 @@ import { Box } from '../../Box';
 import { Text, TextProps } from '../../Text';
 import { charInnerVariant, charOuterStyle } from '../specialInput.css';
 
-interface CharProps extends TextProps {
-  char: string;
-  past?: boolean;
-  wrong?: boolean;
-  cursor?: boolean;
-}
+type CharProps = RecipeVariants<typeof charInnerVariant> &
+  TextProps & {
+    char: string;
+  };
 
 export const Char: React.FC<CharProps> = ({
   char,
   past,
   wrong,
-  cursor,
+  size,
   className,
   children,
   ...props
@@ -36,7 +35,7 @@ export const Char: React.FC<CharProps> = ({
           charInnerVariant({
             past,
             wrong,
-            cursor,
+            size,
           }),
           className,
         )}

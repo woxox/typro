@@ -80,9 +80,16 @@ export const charInnerVariant = recipe({
         }),
       },
     },
-    cursor: {
-      false: {},
-      true: {},
+    size: {
+      // sm: {
+      //   ...baseToken.fontSize['12'],
+      // },
+      // md: {
+      //   ...baseToken.fontSize['14'],
+      // },
+      // lg: {
+      //   ...baseToken.fontSize['18'],
+      // },
     },
   },
   defaultVariants: {

@@ -11,6 +11,10 @@ export const fontSize = {
     fontSize: '40px',
     lineHeight: '56px',
   },
+  '36': {
+    fontSize: '36px',
+    lineHeight: '48px',
+  },
   '30': {
     fontSize: '30px',
     lineHeight: '40px',
@@ -18,6 +22,10 @@ export const fontSize = {
   '24': {
     fontSize: '24px',
     lineHeight: '32px',
+  },
+  '20': {
+    fontSize: '20px',
+    lineHeight: '28px',
   },
   '18': {
     fontSize: '18px',

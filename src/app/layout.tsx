@@ -38,33 +38,39 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         >
           <Box
             backgroundColor={'background.container'}
-            borderRadius={'sm'}
-            minWidth={'280'}
-            padding={'4'}
-            borderBottomLeftRadius="0"
-            borderBottomRightRadius="0"
+            minWidth={{ all: '280', '2xl': '360' }}
+            padding={{ all: '4', '2xl': '6' }}
+            borderRadius={{ all: 'sm', '2xl': 'md' }}
+            borderBottomLeftRadius={{ all: '0', '2xl': '0' }}
+            borderBottomRightRadius={{ all: '0', '2xl': '0' }}
           >
             <Box display={'flex'} flexDirection={'row'} justifyContent={'space-between'}>
-              <Box display={'flex'} flexDirection={'row'} alignItems={'center'}>
-                <Text fontSize={'30'}>Typro</Text>
-                <Box display={'flex'} height={'5'} width={'0.5'} backgroundColor={'text.primary'} />
-                <Text fontSize={'30'} opacity={'disabled'}>
+              <Box
+                display={'flex'}
+                flexDirection={'row'}
+                alignItems={'center'}
+                fontSize={{ all: '30', '2xl': '36' }}
+              >
+                <Text fontWeight="heavy">Typro</Text>
+                <Text fontWeight="heavy" opacity={'disabled'}>
                   grammer
                 </Text>
               </Box>
               <Button onClick={toggleDarkMode}>
-                <Box display="flex">{darkMode ? <HiSun /> : <HiMoon />}</Box>
+                <Box display="flex" paddingX="2">
+                  {darkMode ? <HiSun /> : <HiMoon />}
+                </Box>
               </Button>
             </Box>
           </Box>
 
           <Box
             backgroundColor={'background.container'}
-            borderRadius={'sm'}
-            padding={'4'}
-            minWidth={'280'}
-            borderTopLeftRadius="0"
-            borderTopRightRadius="0"
+            padding={{ all: '4', '2xl': '6' }}
+            minWidth={{ all: '280', '2xl': '360' }}
+            borderRadius={{ all: 'sm', '2xl': 'md' }}
+            borderTopLeftRadius={{ all: '0', '2xl': '0' }}
+            borderTopRightRadius={{ all: '0', '2xl': '0' }}
           >
             {children}
           </Box>

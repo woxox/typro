@@ -4,22 +4,14 @@ import { useMemo } from 'react';
 
 import { Box } from '../../Box';
 import { Text, TextProps } from '../../Text';
-import { charInnerVariant, charOuterStyle } from '../specialInput.css';
+import { charInnerVariant, charOuterStyle } from '../placeholderInput.css';
 
 type CharProps = RecipeVariants<typeof charInnerVariant> &
   TextProps & {
     char: string;
   };
 
-export const Char: React.FC<CharProps> = ({
-  char,
-  past,
-  wrong,
-  size,
-  className,
-  children,
-  ...props
-}) => {
+export const Char: React.FC<CharProps> = ({ char, past, wrong, className, children, ...props }) => {
   const character = useMemo(() => {
     if (char === ' ' && wrong) {
       return '_';
@@ -35,7 +27,6 @@ export const Char: React.FC<CharProps> = ({
           charInnerVariant({
             past,
             wrong,
-            size,
           }),
           className,
         )}

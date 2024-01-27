@@ -9,9 +9,21 @@ import { recipe } from '@vanilla-extract/recipes';
 
 import { baseToken, colorToken } from '@/theme/theme.css';
 
-export const speicalInputStyle = style({
-  paddingTop: baseToken.spacing['2'],
-  cursor: 'pointer',
+export const placeholderInputVariant = recipe({
+  base: {
+    cursor: 'pointer',
+  },
+  variants: {
+    disabled: {
+      false: {
+        paddingTop: baseToken.spacing['2'],
+      },
+      true: {},
+    },
+  },
+  defaultVariants: {
+    disabled: false,
+  },
 });
 
 export const textAreaStyle = style({
@@ -45,10 +57,10 @@ export const cursorStyle = style({
   display: 'inline',
   content: '" "',
   borderRadius: baseToken.radius.full,
-  left: '25%',
+  left: '20%',
   top: '-25%',
-  width: baseToken.width['1'],
-  height: baseToken.height['1'],
+  width: baseToken.width['1.5'],
+  height: baseToken.height['1.5'],
   backgroundColor: fallbackVar(charVars.color, colorToken['text.primary']),
   opacity: 1,
   // animation: `${cursorBlankAnimation} 0.75s infinite ease-in-out`,
@@ -79,17 +91,6 @@ export const charInnerVariant = recipe({
           color: colorToken['text.primary.wrong'],
         }),
       },
-    },
-    size: {
-      // sm: {
-      //   ...baseToken.fontSize['12'],
-      // },
-      // md: {
-      //   ...baseToken.fontSize['14'],
-      // },
-      // lg: {
-      //   ...baseToken.fontSize['18'],
-      // },
     },
   },
   defaultVariants: {

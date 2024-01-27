@@ -1,3 +1,4 @@
+import { RecipeVariants } from '@vanilla-extract/recipes';
 import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useCallback, useRef, useState } from 'react';
@@ -5,23 +6,23 @@ import { useCallback, useRef, useState } from 'react';
 import { useControlled } from '@/hooks/useControlled';
 
 import { Char } from './components/Char';
-import { cursorStyle, speicalInputStyle, textAreaStyle } from './specialInput.css';
+import { cursorStyle, placeholderInputVariant, textAreaStyle } from './placeholderInput.css';
 
-interface SpecialInputProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onSubmit'> {
-  placeholder: string;
-  value?: string;
-  focusable?: boolean;
-  stiffness?: number;
-  damping?: number;
-  onSubmit?: (data: string) => void;
-}
+type PlaceholderInputProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onSubmit'> &
+  RecipeVariants<typeof placeholderInputVariant> & {
+    placeholder: string;
+    value?: string;
+    stiffness?: number;
+    damping?: number;
+    onSubmit?: (data: string) => void;
+  };
 
-export const SpecialInput: React.FC<SpecialInputProps> = ({
+export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
   placeholder,
   value,
-  focusable = true,
+  disabled,
   stiffness = 2000,
-  damping = 75,
+  damping = 40,
   className,
   onSubmit,
   ...rest
@@ -67,7 +68,7 @@ export const SpecialInput: React.FC<SpecialInputProps> = ({
         console.log(textareaRef.current);
         textareaRef.current?.focus();
       }}
-      className={clsx(speicalInputStyle, className)}
+      className={clsx(placeholderInputVariant({ disabled }), className)}
       {...rest}
     >
       <textarea
@@ -82,7 +83,7 @@ export const SpecialInput: React.FC<SpecialInputProps> = ({
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onBeforeInput={handleBeforeInput}
-        disabled={!focusable}
+        disabled={disabled}
       />
       <AnimatePresence>
         {placeholder.split('').map((char, idx, arr) => (

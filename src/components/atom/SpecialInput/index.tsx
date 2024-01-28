@@ -8,13 +8,14 @@ import { useControlled } from '@/hooks/useControlled';
 import { Char } from './components/Char';
 import { cursorStyle, placeholderInputVariant, textAreaStyle } from './placeholderInput.css';
 
-type PlaceholderInputProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onSubmit'> &
+type PlaceholderInputProps = Omit<React.HTMLAttributes<HTMLDivElement>, 'onSubmit' | 'onChange'> &
   RecipeVariants<typeof placeholderInputVariant> & {
     placeholder: string;
     value?: string;
     stiffness?: number;
     damping?: number;
     onSubmit?: (data: string) => void;
+    onChange?: (data: string) => void;
   };
 
 export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
@@ -25,6 +26,7 @@ export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
   damping = 40,
   className,
   onSubmit,
+  onChange,
   ...rest
 }) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -33,6 +35,7 @@ export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
   const [cursor, setCursor] = useState(0);
 
   const handleInputEnd = useCallback(() => {
+    console.log('end');
     onSubmit?.(input);
   }, [input, onSubmit]);
 
@@ -62,6 +65,14 @@ export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
     [handleInputEnd, input.length, placeholder.length],
   );
 
+  const handleInputChange = useCallback<React.ReactEventHandler<HTMLTextAreaElement>>(
+    (e) => {
+      setInput(e.currentTarget.value);
+      onChange?.(e.currentTarget.value);
+    },
+    [onChange, setInput],
+  );
+
   return (
     <div
       onClick={() => {
@@ -79,7 +90,7 @@ export const PlaceholderInput: React.FC<PlaceholderInputProps> = ({
         onSelect={(e) => {
           setCursor(e.currentTarget.selectionStart);
         }}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleInputChange}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         onBeforeInput={handleBeforeInput}
